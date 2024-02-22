@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <X11/Xlib.h>
+#include <time.h>
+#include <unistd.h>
+#include <string.h>
+
+int main() {
+    Display *dpy = NULL;
+    Window win = 0;
+    time_t cur_time = 0;
+    char *input;
+
+    dpy = XOpenDisplay(getenv("DISPLAY"));
+    if (dpy == NULL) {
+        fprintf(stderr, "Can't open display, exiting.\n");
+        exit(1);
+    } 
+    win = DefaultRootWindow(dpy);
+    
+    while(True) {
+        time(&cur_time);
+        input = ctime(&cur_time);
+        /* Since the string is returned with a line feed */
+        input[strlen(input)-1] = '\0';
+        
+        XStoreName(dpy, win, input);
+        XFlush(dpy);
+        sleep(1);
+    }
+
+    free(input);
+
+	return 0;
+}

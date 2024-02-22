@@ -1,0 +1,18 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Iinclude",
+      "-Wall",
+      "-g",
+      "-O0",
+      "-c",
+      "-o",
+      "obj/time_mod.o",
+      "src/time_mod.c"
+    ],
+    "directory": "/home/cochicho/Documents/statusbar",
+    "file": "/home/cochicho/Documents/statusbar/src/time_mod.c",
+    "output": "/home/cochicho/Documents/statusbar/obj/time_mod.o"
+  }
+]
